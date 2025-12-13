@@ -7,7 +7,9 @@ export const Header=()=>{
 
         <>
              <div className="w-[87vw]">
+                 {/* lg:h-[6.8vw] xl:h-[5.8vw] 2xl:h-[4.6vw] h-22 */}
                         <div className=' bg-white lg:h-[6.8vw] xl:h-[5.8vw] 2xl:h-[4.6vw] py-5'>
+                       
                             <div className=' px-4 flex items-center justify-between'>
 
                                 <div className="flex items-center gap-x-40 ps-4 border border-gray-300 rounded-lg ps-4 pe-1 py-2">

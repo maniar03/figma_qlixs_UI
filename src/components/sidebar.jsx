@@ -9,7 +9,9 @@ export const Sidebar = () => {
         <>
 
             <div className="flex min-h-full">
+                {/* w-[13vw] w-60*/}
                 <aside className="w-[13vw] min-h-screen shadow-lg bg-white">
+                
                     <div className=" w-full py-6 px-6 inline-flex border-b border-gray-200  ">
                         <img
                             src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"}

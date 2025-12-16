@@ -10,7 +10,7 @@ export const Sidebar = () => {
 
             <div className="flex min-h-full">
                 {/* w-[13vw] w-60*/}
-                <aside className="w-[13vw] min-h-screen shadow-lg bg-white">
+                <aside className="w-[13vw] min-h-screen shadow-lg bg-white ">
                 
                     <div className=" w-full py-6 px-6 inline-flex border-b border-gray-200  ">
                         <img
@@ -27,7 +27,7 @@ export const Sidebar = () => {
 
                         <div className="  text-blue-500 text-sm  font-bold py-3 px-3 mx-3">MENU</div>
 
-                        <Link to='/'>
+                        <Link to='/dashboard'>
                             <div className="border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center">
                                 <div> <svg
                                     className="fill-current"
@@ -58,7 +58,7 @@ export const Sidebar = () => {
                             </div>
                         </Link>
 
-                        <Link to='/'>
+                        <Link to='/template'>
                             <div className="  py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
                                 <div>                 <svg
                                     className="fill-current"
@@ -78,7 +78,7 @@ export const Sidebar = () => {
                             </div>
                         </Link>
 
-                        <Link to='/'>
+                        <Link to='/summary'>
                             <div className=" py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
                                 <div> <svg
                                     className="w-[22px] h-[22px]"
@@ -101,7 +101,7 @@ export const Sidebar = () => {
                             </div>
                         </Link>
 
-                        <Link to='/'>
+                        <Link to='/booking'>
                             <div className=" py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
                                 <div><LuLaptop className="w-[22px] h-[22px]" /></div>
                                 <div>Booking System</div>

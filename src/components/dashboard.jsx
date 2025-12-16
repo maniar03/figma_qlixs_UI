@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sidebar } from './sidebar'
 
-export const Dashbaord = () => {
+export const Dashboard = () => {
 
     return (
         <>

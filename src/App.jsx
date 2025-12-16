@@ -8,8 +8,10 @@ import { Overview } from './components/initial_screen/overview'
 import { ManageAccount } from './components/initial_screen/manage_account'
 import {Welcome} from './components/initial_screen/welcome'
 import { Sidebar } from './components/sidebar'
-import { Dashbaord } from './components/dashboard'
+import { Dashboard } from './components/dashboard'
 import { Template } from './components/template'
+import { Summary } from './components/summary'
+import { Booking } from './components/booking'
 
 
 
@@ -23,8 +25,12 @@ function App() {
         <Route index element={<Welcome/>}></Route>
         <Route path="/overview" element={<Overview/>}></Route>
         <Route path="/manage-account" element={<ManageAccount/>}></Route>
-        <Route path="/dashboard" element={<Dashbaord/>}></Route>
+        <Route path="/dashboard" element={<Dashboard/>}></Route>
         <Route path="/template" element={<Template/>}></Route>
+        <Route path="/summary" element={<Summary/>}></Route>
+        <Route path="/booking" element={<Booking/>}></Route>
+
+
 
 
       </Routes>

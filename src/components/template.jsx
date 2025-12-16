@@ -1,7 +1,7 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Sidebar } from "./sidebar";
 import { Header } from "./header";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Checkbox, Label, TextInput, Select, FileInput, ToggleSwitch, Radio } from "flowbite-react";
 // only import what you want to use
 // import {
 //     Button,
@@ -22,6 +22,7 @@ export const Template = () => {
     const [active, setActive] = useState("dt");
     const [category, setCategory] = useState("hr");
     const [show, setShow] = useState('template')
+    const [switch2, setSwitch2] = useState(true);
 
 
 
@@ -33,8 +34,8 @@ export const Template = () => {
                 <div className="pb-8">
                     <div><Header /></div>
                     {show == 'template' &&
-                        <div>
-                            <div className="border border-gray-300 bg-white mx-6 my-4 py-4 px-4  rounded-xl">
+                        <div >
+                            <div className="border-2 border-slate-200/80 bg-white mx-6 my-4 py-4 px-4  rounded-xl">
                                 <div className=" flex gap-6 border-b border-gray-200">
                                     <div
                                         className={`px-4 py-3 cursor-pointer text-lg ${active === "dt" ? "border-b-2 border-blue-600 text-blue-500 font-bold" : "border-b-2 border-transparent "}`}
@@ -115,7 +116,7 @@ export const Template = () => {
                             {active == 'dt' &&
                                 <div>
                                     <div className="grid grid-cols-3 gap-4 px-6">
-                                        <div className="flex  flex-col px-4 py-4 bg-white border border-gray-300 rounded-xl">
+                                        <div className="flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl">
                                             <div className="font-bold text-lg ">Screening Template (Initial Candidate Vetting)</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside  ${category === 'hr' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'} px-2`} >
@@ -152,7 +153,7 @@ export const Template = () => {
                                             </div>
                                         </div>
 
-                                        <div className=" flex  flex-col px-4 py-4 bg-white border border-gray-300 rounded-xl ">
+                                        <div className=" flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl ">
                                             <div className="font-bold text-lg ">Standard Interview Template (General Role Int...</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside ${category === 'finance' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'}   px-2`} >
@@ -185,7 +186,8 @@ export const Template = () => {
                                                 <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-8 lg:h-10 text-extrabold  ">Use Template</button>
                                             </div>
                                         </div>
-                                        <div className=" flex  flex-col px-4 py-4 bg-white border border-gray-300 rounded-xl ">
+
+                                        <div className=" flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl ">
                                             <div className="font-bold text-lg ">Executive Interview Template (Senior Leaders...</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside  ${category === 'tech' || category === 'eng' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'}  px-2`} >
@@ -222,7 +224,7 @@ export const Template = () => {
                                     </div>
 
                                     <div className="grid grid-cols-3 gap-4 px-6 pt-4">
-                                        <div className="flex  flex-col px-4 py-4 bg-white border border-gray-300 rounded-xl">
+                                        <div className="flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl">
                                             <div className="font-bold text-lg ">Referee Template (Reference Check Questions)</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className='text-md list-disc list-inside bg-zinc-100 text-gray-500 px-2' >
@@ -511,25 +513,113 @@ export const Template = () => {
 
                             <div className="font-bold text-xl ">Create New Template</div>
                             <div className="text-md">This template will be saved to your dashboard where you can edit or delete it as needed</div>
-                            <div className="bg-white rounded-xl border border-gray-300/70 px-6 py-8 mt-4">
-                                <form className="flex ">
-                                    <div className="flex justify-between w-full border">
-                                        <div className="w-full">
-                                            <div className="mb-2 block">
-                                                <Label htmlFor="email1">Your email</Label>
-                                            </div>
-                                            <TextInput id="email1" type="email" placeholder="name@flowbite.com" required sizing="sm" className="w-full"/>
+                            <div className="bg-white rounded-xl border-2 border-slate-200/80 px-6 py-8 mt-4">
+                                <form className="">
+                                    <div className="flex gap-x-8 justify-between ">
+                                        <div className="w-full ">
+                                            <Label className="text-lg">Template Name</Label>
+
+                                            <TextInput className=" pt-4" sizing="sm" placeholder="Enter template name..."></TextInput>
                                         </div>
                                         <div className="w-full">
-                                            <div className="mb-2 block">
-                                                <Label htmlFor="password1">Your password</Label>
-                                            </div>
-                                            <TextInput id="password1" type="password" required sizing="sm" className="w-full" />
+                                            <Label className="text-lg ">Category</Label>
+                                            <Select sizing="sm" className="pt-4">
+                                                <option>Tech</option>
+                                            </Select>
                                         </div>
+                                    </div>
+                                    <div className="pt-4 border-b-2 pb-8 border-gray-200/50">
+                                        <Label className="text-lg">Upload Files</Label>
+                                        <div className="flex w-full items-center justify-center pt-4">
+
+                                            <Label
+                                                htmlFor="dropzone-file"
+                                                className="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 "
+                                            >
+                                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                                    <svg
+                                                        className="mb-4 h-8 w-8 text-blue-500 "
+                                                        aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 20 16"
+
+                                                    >
+                                                        <path
+                                                            stroke="currentColor"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                                                        />
+                                                    </svg>
+                                                    <p className="mb-2 text-sm text-gray-500 ">
+                                                        <span className="font-semibold">Click to upload</span> or drag and drop
+                                                    </p>
+                                                    <p className="text-xs text-gray-500 ">Supports Docx, Doc & PDF</p>
+                                                </div>
+                                                <FileInput id="dropzone-file" className="hidden" />
+                                            </Label>
+                                        </div>
+                                    </div>
+                                    <div className="pt-6">
+                                        <div className="flex justify-between  items-center">
+                                            <div className="text-xl font-semibold text-slate-800/80">Add Question</div>
+                                            <button className=" bg-blue-500 rounded rounded-full text-white px-4  flex items-center gap-2 ">
+                                                <div className="text-4xl">
+                                                    +
+                                                </div>
+                                                <div className="text-2xl py-4">Add Template</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-2  gap-6 mt-4">
+                                        <div className="w-full">
+                                            <Label className="text-lg ">Question</Label>
+                                            <TextInput className=" pt-4 " sizing="sm" placeholder="Question" ></TextInput>
+                                        </div>
+                                        <div className="w-full">
+                                            <Label className="text-lg ">Question</Label>
+                                            <TextInput className=" pt-4" sizing="sm" placeholder="Question" ></TextInput>
+                                        </div>
+                                        <div className="w-full">
+                                            <Label className="text-lg ">Question</Label>
+                                            <TextInput className=" pt-4" sizing="sm" placeholder="Question" ></TextInput>
+                                        </div>
+
+                                        <div className="w-full">
+                                            <Label className="text-lg ">Question</Label>
+                                            <TextInput className=" pt-4" sizing="sm" placeholder="Question" ></TextInput>
+                                        </div>
+                                        <div className="w-full flex justify-between items-center bg-white">
+                                            <Label className="text-xl ">Add Section Header</Label>
+                                            <label class="inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" className="sr-only peer " checked={switch2} onChange={() => setSwitch2(!switch2)}
+                                                />
+
+                                                <div
+                                                    class="relative w-9 h-5 bg-gray-300 peer-focus:ring-4 peer-focus:ring-blue-300
+           rounded-full peer peer-checked:after:translate-x-full
+           after:content-[''] after:absolute after:top-[2px] after:start-[2px]
+           after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all
+           peer-checked:bg-blue-600">
+                                                </div>
+
+                                                
+                                            </label>
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <div className="flex justify-end items-center gap-4 mt-4">
+                                        <button className=" bg-white text-blue-500 border border-blue-500 rounded rounded-full py-4 px-6 h-full  font-semibold  ">Cancel</button>
+
+                                        <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full py-4 text-extrabold text-xl  ">Save Draft</button>
                                     </div>
 
 
-                                    <Button type="submit">Submit</Button>
                                 </form>
                             </div>
 

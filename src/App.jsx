@@ -12,6 +12,7 @@ import { Dashboard } from './components/dashboard'
 import { Template } from './components/template'
 import { Summary } from './components/summary'
 import { Booking } from './components/booking'
+import { Recording } from './components/recording'
 
 
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/template" element={<Template/>}></Route>
         <Route path="/summary" element={<Summary/>}></Route>
         <Route path="/booking" element={<Booking/>}></Route>
-
+        <Route path="/recording" element={<Recording/>}></Route>
 
 
 

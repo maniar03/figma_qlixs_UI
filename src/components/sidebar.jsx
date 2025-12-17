@@ -1,13 +1,16 @@
 import React from "react";
 import { LuLaptop } from 'react-icons/lu';
 import { BiSolidVideoRecording } from "react-icons/bi";
-import { Link } from 'react-router'
+import { Link,useLocation } from 'react-router'
+
+
+
 export const Sidebar = () => {
 
+    const location=useLocation()
 
     return (
         <>
-
             <div className="flex min-h-full">
                 {/* w-[13vw] w-60*/}
                 <aside className="w-[13vw] min-h-screen shadow-lg bg-white ">
@@ -28,7 +31,7 @@ export const Sidebar = () => {
                         <div className="  text-blue-500 text-sm  font-bold py-3 px-3 mx-3">MENU</div>
 
                         <Link to='/dashboard'>
-                            <div className="border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center">
+                            <div className={` ${location.pathname == '/dashboard'? "border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center" : 'py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center' }`}>
                                 <div> <svg
                                     className="fill-current"
                                     width="18"
@@ -59,7 +62,7 @@ export const Sidebar = () => {
                         </Link>
 
                         <Link to='/template'>
-                            <div className="  py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
+                            <div className={`${location.pathname == '/template'? "border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center" : 'py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center' }`}>
                                 <div>                 <svg
                                     className="fill-current"
                                     width="18"
@@ -79,7 +82,7 @@ export const Sidebar = () => {
                         </Link>
 
                         <Link to='/summary'>
-                            <div className=" py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
+                            <div className={` ${location.pathname == '/summary'? "border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center" : 'py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center' }`}>
                                 <div> <svg
                                     className="w-[22px] h-[22px]"
                                     aria-hidden="true"
@@ -102,14 +105,14 @@ export const Sidebar = () => {
                         </Link>
 
                         <Link to='/booking'>
-                            <div className=" py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center">
+                            <div className={` ${location.pathname == '/booking'? "border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center" : 'py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center' }`}>
                                 <div><LuLaptop className="w-[22px] h-[22px]" /></div>
                                 <div>Booking System</div>
                             </div>
                         </Link>
 
-                        <Link to='/'>
-                            <div className=" py-3 px-3 mx-3 mx-3rounded-lg flex gap-x-2 items-center">
+                        <Link to='/recording'>
+                            <div className={` ${location.pathname == '/recording'? "border bg-blue-500 font-semibold  text-blue-500 py-3 px-3 mx-3 rounded-lg text-white flex gap-x-2 items-center" : 'py-3 px-3 mx-3 rounded-lg flex gap-x-2 items-center' }`}>
                                 <div><BiSolidVideoRecording className="w-[22px] h-[22px]" /></div>
                                 <div>In Person Meeting</div>
                             </div>

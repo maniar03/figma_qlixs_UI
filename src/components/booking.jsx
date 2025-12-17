@@ -116,7 +116,7 @@ export const Booking = () => {
                                 <div className='py-6 px-4 flex gap-x-2 items-center justify-between '>
                                     <div className='flex gap-x-2'>
                                         <div className='h-8 w-[0.3vw] bg-blue-500 rounded-full'></div>
-                                        <div className='font-bold text-xl text-gray-600'>Recent Summaries</div>
+                                        <div className='font-bold text-xl text-gray-600'>Appointments</div>
                                     </div>
                                     <div className="flex gap-x-4">
                                         <div className="flex items-center justify-between gap-x-40 ps-4 border border-gray-300 rounded-lg ps-4 pe-1 py-2 grow-4 bg-gray-100/50">

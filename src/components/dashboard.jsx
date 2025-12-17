@@ -103,7 +103,7 @@ export const Dashboard = () => {
                                         src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/1df3ipiy_expires_30_days.png"}
                                         className="size-12 "
                                     />
-                                    <text className='bg-gray-100 bg-gray-100/80 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Report Overview</text>
+                                    <text className=' bg-gray-100/30 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Report Overview</text>
                                 </div>
                                 <div className='text-lg font-semibold  '>EL1 Referee Report</div>
                                 <div className='relative flex pt-4 pb-10'>
@@ -139,7 +139,7 @@ export const Dashboard = () => {
                                         src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/wl6865rp_expires_30_days.png"}
                                         className="size-12"
                                     />
-                                    <text className='bg-gray-100 bg-gray-100/80 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Candidate Overview</text>
+                                    <text className=' bg-gray-100/30 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Candidate Overview</text>
                                 </div>
                                 <div className='text-lg font-semibold  '>APS 6 Bulk Interviews</div>
                                 <div className='relative flex pt-4 pb-10'>
@@ -175,7 +175,7 @@ export const Dashboard = () => {
                                         src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/i0iee2at_expires_30_days.png"}
                                         className="size-12"
                                     />
-                                    <text className='bg-gray-100 bg-gray-100/80 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Report Overview</text>
+                                    <text className=' bg-gray-100/30 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>Report Overview</text>
                                 </div>
                                 <div className='text-lg font-semibold  '>Candidate Feedback Template</div>
                                 <div className='relative flex pt-4 pb-10'>
@@ -211,7 +211,7 @@ export const Dashboard = () => {
                                         src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/zf2bz97y_expires_30_days.png"}
                                         className="imagesize-12 bg-black"
                                     />
-                                    <text className='bg-gray-100 bg-gray-100/80 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>+1% last week</text>
+                                    <text className=' bg-gray-100/30 border border-gray-300/80 rounded-lg lg:h-[2vw] 2xl:h-[1.5vw]  text-sm p-2 flex items-center'>+1% last week</text>
                                 </div>
                                 <div className='text-lg font-semibold  '>Generic Bulk Interview Questionse</div>
                                 <div className='relative flex pt-4 pb-10'>

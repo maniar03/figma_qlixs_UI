@@ -438,10 +438,11 @@ export const Summary = () => {
                                         </h3>
                                         <button
                                             onClick={() => setOpenModal(false)}
-                                            className="w-9 h-9 flex items-center justify-center rounded hover:bg-gray-100 px-12"
+                                            className="w-9 h-9 flex items-center justify-center rounded border-2 rounded-full mx-12"
                                         >
                                             ✕
                                         </button>
+                                        
                                     </div>
 
                                     {/* Body */}
@@ -578,7 +579,9 @@ export const Summary = () => {
                                         </div>
 
                                         <div className="grid grid-cols-3 gap-4 px-6 pt-6 ">
-                                            <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
+
+                                            {[1,2,3].map(()=>{
+                                                return  <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
 
                                                 <div className="flex justify-between border-b pb-4 pt-2 border-white gap-x-6">
                                                     <div className="font-bold text-xl ">Interview</div>
@@ -611,77 +614,11 @@ export const Summary = () => {
 
                                                     <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full w-full text-extrabold  ">Use Template</button>
                                                 </div>
-                                            </div>
-
-                                            <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
-
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-white gap-x-6">
-                                                    <div className="font-bold text-xl ">Interview</div>
-                                                    <img src='https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/oxwuxu23_expires_30_days.png' className='size-8 text-white' />
+                                            </div> 
+                                            })}
 
 
-                                                </div>
-                                                <div className="py-4 text-md font-medium px-2 text-gray-600">
-
-                                                    <ul className='list-disc list-inside py-2 ' >
-                                                        <li> Despite these challenges, they maintain a positive outlook and are actively engaged in conversations about luxury cars.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> They recently rented a Lamborghini for a short period, showing their enthusiasm for nigh-end vehicles.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li>Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                </div>
-
-                                                <div className="flex justify-between items-center p-2 mt-auto bg-white rounded-full gap-x-4">
-                                                    <button className=" bg-white text-blue-500 border border-blue-500 rounded rounded-full py-2 px-4 h-full w-full font-semibold  ">Preview</button>
-
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full w-full text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
-
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-white gap-x-6">
-                                                    <div className="font-bold text-xl ">Interview</div>
-                                                    <img src='https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/oxwuxu23_expires_30_days.png' className='size-8 text-white' />
-
-
-                                                </div>
-                                                <div className="py-4 text-md font-medium px-2 text-gray-600">
-
-                                                    <ul className='list-disc list-inside py-2 ' >
-                                                        <li> Despite these challenges, they maintain a positive outlook and are actively engaged in conversations about luxury cars.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> They recently rented a Lamborghini for a short period, showing their enthusiasm for nigh-end vehicles.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li>Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                </div>
-
-                                                <div className="flex justify-between items-center p-2 mt-auto bg-white rounded-full gap-x-4">
-                                                    <button className=" bg-white text-blue-500 border border-blue-500 rounded rounded-full py-2 px-4 h-full w-full font-semibold  ">Preview</button>
-
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full w-full text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div>
+                                            
 
 
                                         </div>

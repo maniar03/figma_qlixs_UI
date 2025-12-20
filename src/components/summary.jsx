@@ -8,6 +8,52 @@ import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "flowbite-rea
 export const Summary = () => {
 
     const [openModal, setOpenModal] = useState(false);
+    const [openPreviewModal, setOpenPreviewModal] = useState(false)
+    const [previewData, setPreviewData] = useState({})
+
+    const template_card = [
+        {
+            id: 1,
+            title: 'Basic Telephone Screening Template',
+            category: ' HR / Recruitment',
+            time: 'Last Used: Oct 28,2025',
+            description: 'A quick checklist for pre-screening candidates before interviews.',
+            points: ['Position Type & Contract Details', 'Expected Salary / Hourly Rate', 'Candidate Location & Availability', 'Background Verification Steps'],
+        },
+        {
+            id: 2,
+            title: 'Finance Interview',
+            category: 'Finance',
+            time: 'Used 3 times in this month',
+            description: 'Structured questions to evaluate a candidate\'s financial knowledge.',
+            points: ['Familiar Software (Excel, SAP, QuickBooks)', 'Budget & Risk Management Experience', 'Accounting Principles', 'Valuation Knowledge']
+        },
+        {
+            id: 3,
+            title: 'Technology Interview',
+            category: 'Engineering / Tech',
+            time: 'Updated: Oct 30,2025',
+            description: 'Evaluate candidates on core programming and problem-solving skills.',
+            points: ['Array & Algorithm Operations', 'Debugging Techniques', 'Subsystem Optimization', 'Coding Scenarios']
+        }
+    ]
+
+    const cat_bg_color = ['bg-blue-100', 'bg-green-100', 'bg-red-100']
+    const cat_text_color = ['text-blue-500', 'text-green-500', 'text-red-500']
+
+    const second_template_card = {
+        title: 'Interview',
+        points: ['Despite these challenges, they maintain a positive outlook and are actively engaged in conversations about luxury cars.',
+            'They recently rented a Lamborghini for a short period, showing their enthusiasm for nigh-end vehicles.',
+            'Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.',
+            'Speaker A, age 25, recently experienced dizziness and health issues, leading to specialist consultations for further tests.'
+        ]
+    }
+
+    const handlePreview = (card) => {
+        setPreviewData(card)
+        setOpenPreviewModal(true)
+    }
 
     return (
         <>
@@ -442,7 +488,7 @@ export const Summary = () => {
                                         >
                                             ✕
                                         </button>
-                                        
+
                                     </div>
 
                                     {/* Body */}
@@ -471,154 +517,76 @@ export const Summary = () => {
                                         <div className="text-gray-900 text-2xl font-bold">Select a template to get answer</div>
 
                                         <div className="grid grid-cols-3 gap-4 px-6 ">
-                                            <div className="flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl">
-                                                <div className="font-bold text-lg ">Basic Telephone Screening Template</div>
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
-                                                    <ul className={`text-md list-disc list-inside bg-blue-100 text-blue-500 px-2`} >
-                                                        <li>Categopry: HR / Recruitment</li>
 
-                                                    </ul>
-                                                    <div className="opacity-70">Last Used: Oct 28,2025</div>
+                                            {template_card.map((val, index) => {
+                                                return <div className="flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl">
+                                                    <div className="font-bold text-lg ">{val.title}</div>
+                                                    <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
+                                                        <ul className={`text-md list-disc list-inside ${cat_bg_color[index]} ${cat_text_color[index]} px-2`} >
+                                                            <li>Category: {val.category}</li>
+                                                        </ul>
+                                                        <div className="opacity-70">Last Used: Oct 28,2025</div>
 
-                                                </div>
-                                                <div className="py-4 ">
-                                                    <div className="text-gray-700 ">A quick checklist for pre-screening candidates before interviews.</div>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-2 text-gray-500' >
-                                                        <li>Position Type & Contract Details</li>
+                                                    </div>
+                                                    <div className="py-4 ">
+                                                        <div className="text-gray-700 ">{val.description}</div>
+                                                        <ul className='text-md list-disc list-inside px-2 pt-2 text-gray-500' >
 
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-2 text-gray-500' >
-                                                        <li> Expected Salary / Hourly Rate</li>
+                                                            {val.points.map((pt) => {
+                                                                return <li>{pt}</li>
+                                                            })}
 
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-2 text-gray-500' >
-                                                        <li>Candidate Location & Availability</li>
+                                                        </ul>
 
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-2 text-gray-500' >
-                                                        <li> Background Verification Steps</li>
+                                                    </div>
 
-                                                    </ul>
-                                                </div>
+                                                    <div className="flex justify-between items-center pt-4 pt-auto mt-auto">
+                                                        <button className=" bg-slate-300/70 rounded rounded-full text-gray-500 px-4 h-12 lg:h-10 font-semibold" onClick={() => handlePreview(val)}>Preview</button>
 
-                                                <div className="flex justify-between items-center pt-4 pt-auto mt-auto">
-                                                    <button className=" bg-slate-300/70 rounded rounded-full text-gray-500 px-4 h-12 lg:h-10 font-semibold  ">Preview</button>
-
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-8 lg:h-10 text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div>
-
-                                            <div className=" flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl ">
-                                                <div className="font-bold text-lg ">Finance Interview</div>
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
-                                                    <ul className={`text-md list-disc list-inside bg-green-100 text-green-500  px-2`} >
-                                                        <li>Categopry: Finance</li>
-
-                                                    </ul>
-                                                    <div className="opacity-70">Used 3 times in this month</div>
-                                                </div>
-                                                <div className="py-4 ">
-                                                    <div className="text-gray-800 text-gray-700" >Structured questions to evaluate a candidate's financial knowledge.</div>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Familiar Software (Excel, SAP, QuickBooks)</li>
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Budget & Risk Management Experience</li>
-
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Accounting Principles</li>
-
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Valuation Knowledge</li>
-
-                                                    </ul>
-                                                </div>
-                                                <div className="flex justify-between items-center pt-4 mt-auto">
-                                                    <button className=" bg-slate-300/70 rounded rounded-full text-gray-500 px-4 h-12 lg:h-10 font-semibold  ">Preview</button>
-
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-8 lg:h-10 text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div>
-
-                                            <div className=" flex  flex-col px-4 py-4 bg-white border-2 border-slate-200/80 rounded-xl ">
-                                                <div className="font-bold text-lg ">Technology Interview</div>
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
-                                                    <ul className={`text-md list-disc list-inside  bg-red-100 text-red-500  px-2`} >
-                                                        <li>Categopry: Engineering / Tech</li>
-
-                                                    </ul>
-                                                    <div className="opacity-70">Updated: Oct 30,2025</div>
-                                                </div>
-                                                <div className="py-4 ">
-                                                    <div className=" text-gray-700 ">Evaluate candidates on core programming and problem-solving skills.</div>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Array & Algorithm Operations</li>
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Debugging Techniques</li>
-
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Sustem Optimization</li>
-
-                                                    </ul>
-                                                    <ul className='text-md list-disc list-inside px-2 pt-1 text-gray-500' >
-                                                        <li>Coding Scenarios</li>
-
-                                                    </ul>
+                                                        <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-8 lg:h-10 text-extrabold">Use Template</button>
+                                                    </div>
                                                 </div>
 
-                                                <div className="flex justify-between items-center pt-4 mt-auto">
-                                                    <button className=" bg-slate-300/70 rounded rounded-full text-gray-500 px-4 h-12 lg:h-10 font-semibold  ">Preview</button>
+                                            })}
 
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-8 lg:h-10 text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div>
+                                            {/* {Array.from({length:3}).forEach(()=>{
+
+                                        })} */}
                                         </div>
 
                                         <div className="grid grid-cols-3 gap-4 px-6 pt-6 ">
 
-                                            {[1,2,3].map(()=>{
-                                                return  <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
+                                            {[1, 2, 3].map(() => {
+                                                return <div className="flex  flex-col px-4 py-4 bg-slate-200/80  rounded-xl">
 
-                                                <div className="flex justify-between border-b pb-4 pt-2 border-white gap-x-6">
-                                                    <div className="font-bold text-xl ">Interview</div>
-                                                    <img src='https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/oxwuxu23_expires_30_days.png' className='size-8 text-white' />
+                                                    <div className="flex justify-between border-b pb-4 pt-2 border-white gap-x-6">
+                                                        <div className="font-bold text-xl ">{second_template_card.title}</div>
+                                                        <img src='https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/oxwuxu23_expires_30_days.png' className='size-8 text-white' />
 
 
+                                                    </div>
+                                                    <div className="py-4 text-md font-medium px-2 text-gray-600">
+
+                                                        <ul className='list-disc list-inside py-2 ' >
+
+                                                            {second_template_card.points.map((val, _) => {
+                                                                return <li> {val}</li>
+                                                            })}
+
+                                                        </ul>
+                                                       
+                                                    </div>
+
+                                                    <div className="flex justify-between items-center p-2 mt-auto bg-white rounded-full gap-x-4">
+                                                        <button className=" bg-white text-blue-500 border border-blue-500 rounded rounded-full py-2 px-4 h-full w-full font-semibold  " onClick={() => handlePreview(second_template_card)}>Preview</button>
+
+                                                        <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full w-full text-extrabold  ">Use Template</button>
+                                                    </div>
                                                 </div>
-                                                <div className="py-4 text-md font-medium px-2 text-gray-600">
-
-                                                    <ul className='list-disc list-inside py-2 ' >
-                                                        <li> Despite these challenges, they maintain a positive outlook and are actively engaged in conversations about luxury cars.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> They recently rented a Lamborghini for a short period, showing their enthusiasm for nigh-end vehicles.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li>Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                    <ul className='list-disc list-inside py-2' >
-                                                        <li> Health Concerns and Luxury Car Rentals: An Informal Discussion on Personal Experiences and Industry Insights.</li>
-
-                                                    </ul>
-                                                </div>
-
-                                                <div className="flex justify-between items-center p-2 mt-auto bg-white rounded-full gap-x-4">
-                                                    <button className=" bg-white text-blue-500 border border-blue-500 rounded rounded-full py-2 px-4 h-full w-full font-semibold  ">Preview</button>
-
-                                                    <button className=" bg-blue-500 rounded rounded-full text-white px-6 h-full w-full text-extrabold  ">Use Template</button>
-                                                </div>
-                                            </div> 
                                             })}
 
 
-                                            
+
 
 
                                         </div>
@@ -646,6 +614,58 @@ export const Summary = () => {
                             </div>
                         </div>
                     )}
+
+                    {openPreviewModal &&
+                        (
+                            <div
+                                className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+                                aria-hidden="true"
+                            >
+                                <div className="relative w-full max-w-4xl h-[60vh] p-4 mx-10 ">
+                                    <div className="flex flex-col h-full bg-white rounded-lg shadow-lg  ">
+
+                                        {/* Header */}
+                                        <div className="flex items-center justify-between border-b  border-slate-200/80">
+                                            <h3 className="text-2xl font-bold text-gray-900 p-6 ">
+                                                Template Answers
+                                            </h3>
+                                            <button
+                                                onClick={() => setOpenPreviewModal(false)}
+                                                className="w-9 h-9 flex items-center justify-center rounded border-2 rounded-full mx-12"
+                                            >
+                                                ✕
+                                            </button>
+
+                                        </div>
+
+                                        {/* Body */}
+                                        <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+                                            <p className="text-gray-900 text-2xl font-bold">
+                                                {previewData?.title}
+                                            </p>
+                                            {previewData.category && <div className="text-gray-900 font-bold text-xl">Category: <span className="text-gray-600 font-medium">{previewData.category }</span></div>}
+                                            {previewData.time && <div className="text-gray-900 font-bold text-xl">Recruiter: <span className="text-gray-600 font-medium">{previewData?.time}</span></div>}
+
+                                            <div className="text-gray-700 text-lg">{previewData?.description}</div>
+
+                                            <div className="text-gray-700 text-lg font-semibold italic">Points</div>
+                                    
+                                            <ul className='text-md list-disc list-inside px-2  text-gray-500' ></ul>
+                                               {previewData.points.map((val,index)=>{
+                                                return <li className="ms-8">{val}</li>
+                                               })}
+                                            
+
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
 
                 </div>
             </div>

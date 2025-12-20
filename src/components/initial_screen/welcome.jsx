@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Overview } from "./overview";
+
 
 export const Welcome = () => {
+
+    const [openModal, setOpenModal] = useState(false)
+
+    const [count, setCount] = useState(1)
+    const images = {
+        1: 'template2.jpg', 2: 'summary2.jpg', 3: 'booking2.jpg', 4: 'meeting2.jpg', 5: 'analytics2.jpg'
+    }
+
+
+
+    const handleNext = () => {
+        setCount(prev => {
+            const newValue = prev < 5 ? prev + 1 : prev;
+            console.log("updated:", newValue);
+            return newValue;
+        });
+    };
 
     return (
         <>
@@ -24,7 +43,8 @@ export const Welcome = () => {
                         <div className="text-2xl pt-4 w-68 lg:w-[25vw]">
                             Your smarter, faster way to recruit - all in one workspace
                         </div>
-                        <button className="mt-9 bg-blue-500 rounded rounded-full text-white w-30 lg:w-38 h-12 lg:h-12 text-extrabold text-md lg:text-xl">Get Started</button>
+                        <button className="mt-9 bg-blue-500 rounded rounded-full text-white w-30 lg:w-38 h-12 lg:h-12 text-extrabold text-md lg:text-xl" onClick={() => setOpenModal(true)}>
+                            Get Started</button>
 
                         {/* <div className=" border flex-row lg:flex-col xl:flex-col mt-16  lg:justify-between xl:lg:justify-between lg:w-[25vw] ">
 
@@ -67,6 +87,156 @@ export const Welcome = () => {
 
 
                 </div>
+
+
+                {openModal &&
+                    (
+                        <div
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+                            aria-hidden="true"
+                        >
+                            <div className="relative w-full max-w-[80vw] h-[84.5vh] p-4 mx-10 ">
+                                <div className="flex flex-col h-full bg-white rounded-lg shadow-lg  ">
+
+                                    {/* Header */}
+                                    {/* <div className="flex items-center justify-between border-b  border-slate-200/80">
+                                            <h3 className="text-2xl font-bold text-gray-900 p-6 ">
+                                                
+                                            </h3>
+                                            <button
+                                                onClick={() => setOpenModal(false)}
+                                                className="w-9 h-9 flex items-center justify-center rounded border-2 rounded-full mx-12"
+                                            >
+                                                ✕
+                                            </button>
+
+                                        </div> */}
+
+                                    {/* Body */}
+
+                                    <div className="overflow-y-auto  ">
+                                        <div className="w-full px-6 sm:px-10 lg:px-10 xl:px-10 py-10">
+
+                                            <div className="flex w-31  justify-between">
+                                                <img
+                                                    src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"}
+                                                    className="image size-10"
+                                                />
+                                                <img
+                                                    src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/040czdgg_expires_30_days.png"}
+                                                    className="image2 size-10"
+                                                />
+                                            </div>
+                                            <div className="flex mt-6 justify-between">
+                                                <div className=" lg:w-[25vw] xl:w-[29vw]">
+                                                    <div className="text-2xl lg:text-3xl font-semibold  ">Quick Overview</div>
+
+                                                    <div className="text-xl pt-4 w-68 lg:w-[25vw] lg:w-[29vw] ">
+                                                        Select the features you'll use most in your recruitment workflow
+                                                    </div>
+
+                                                    <div className="mt-4 grid gap-y-3">
+                                                        {/* <div className={`xl:w-[29vw]  xl:h-[4.5vw] bg-white rounded-lg border border-2 ${count == 1 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 relative flex`} id='templates' onClick={handleSelect}>
+                <img src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"} className="flex-none  xl:h-[2.8vw]" />
+                <div className="flex-2 ps-2 flex-wrap">
+                    <div className="font-medium lg:text-normal xl:text-lg">Templates</div>
+                    <div className="text text-gray-700 lg:text-md xl:text-lg">Select from pre-made or custome template</div>
+
+                </div>
+            </div> */}
+
+                                                        <div
+                                                            className={`w-full max-w-[2xl] h-auto max-h-[4vw] h-auto lg:w-[28vw] lg:h-[6vw] xl:w-[29vw] xl:h-[4.5vw] bg-white rounded-lg border border-2 ${count == 1 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 flex items-center gap-3`}
+                                                            id="templates"
+                                                            onClick={() => setCount(1)}
+                                                        >
+                                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png" className="h-14 lg:h-[4vw] xl:h-[2.8vw] flex-none" />
+
+                                                            <div>
+                                                                <div className="font-medium text-base lg:text-md xl:text-md 2xl:text-lg">
+                                                                    Templates
+                                                                </div>
+
+                                                                <div className="text-gray-700 text-sm lg:text-md xl:text-md 2xl:text-lg leading-tight">
+                                                                    Select from pre-made or custom template
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div className={`w-full max-w-[2xl] h-auto max-h-[4vw]  lg:h-[6vw]  xl:h-[4.5vw]  bg-white rounded-lg border border-2 ${count == 2 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 flex items-center gap-3`} id='ai' onClick={() => setCount(2)}>
+                                                            <img src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"} className="h-14 lg:h-[4vw] xl:h-[2.8vw] flex-none" />
+                                                            <div className="flex-2 ps-2 flex-wrap">
+                                                                <div className="font-medium text-base lg:text-lg xl:text-md 2xl:text-lg">AI Summaries</div>
+                                                                <div className="text-gray-700 text-sm lg:text-md xl:text-md 2xl:text-lg leading-tight">Access candidate summaries and insights</div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div className={`w-full max-w-[2xl] h-auto max-h-[4vw] h-auto lg:w-[28vw] lg:h-[6vw] xl:w-[29vw] xl:h-[4.5vw] bg-white rounded-lg border border-2 ${count == 3 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 flex items-center gap-3`} id='booking' onClick={() => setCount(3)}>
+                                                            <img src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"} className="h-14 lg:h-[4vw] xl:h-[2.8vw] flex-none" />
+                                                            <div className="flex-2 ps-2 flex-wrap">
+                                                                <div className="font-medium text-base lg:text-md xl:text-md 2xl:text-lg">Booking System</div>
+                                                                <div className="text-gray-700 text-sm lg:text-md xl:text-md 2xl:text-lg leading-tight">Schedule meeting times with no back-and-forth</div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div className={`w-full max-w-[2xl] h-auto max-h-[4vw] h-auto lg:w-[28vw] lg:h-[6vw] xl:w-[29vw] xl:h-[4.5vw] bg-white rounded-lg border border-2 ${count == 4 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 flex items-center gap-3`} id='meeting' onClick={() => setCount(4)}>
+                                                            <img src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"} className="h-14 lg:h-[4vw] xl:h-[2.8vw] flex-none" />
+                                                            <div className="flex-2 ps-2 flex-wrap">
+                                                                <div className="font-medium text-base lg:text-lg xl:text-md 2xl:text-lg">In Person Meeting</div>
+                                                                <div className="text-gray-700 text-sm lg:text-md xl:text-md 2xl:text-lg leading-tight">Capture, summarize and conduct all in 1 - spot</div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div className={`w-full max-w-[2xl] h-auto max-h-[4vw] h-auto lg:w-[28vw] lg:h-[6vw] xl:w-[29vw] xl:h-[4.5vw] bg-white rounded-lg border border-2 ${count == 5 ? 'border-blue-500' : 'border-gray-300/70'} lg:p-2 xl:p-3 flex items-center gap-3`} id='analytics' onClick={() => setCount(5)}>
+                                                            <img src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/5vC3DNNPvT/5yhegyb9_expires_30_days.png"} className="h-14 lg:h-[4vw] xl:h-[2.8vw] flex-none" />
+                                                            <div className="flex-2 ps-2 flex-wrap">
+                                                                <div className="font-medium text-base lg:text-lg xl:text-md 2xl:text-lg">Analytics</div>
+                                                                <div className="text-gray-700 text-sm lg:text-md xl:text-md 2xl:text-lg leading-tight">Progress faster and stay updated</div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="mt-10 flex justify-between">
+                                                        <div className="text-gray-500">Step {count} of 5</div>
+                                                        <div className="flex grip gap-3 text-gray-500">
+                                                            <button onClick={() => setOpenModal(false)}>Skip</button>
+                                                            <div>
+                                                                <button className=" bg-blue-500 rounded rounded-full text-white px-4 py-1 text-extrabold text-md " onClick={handleNext}>Next</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+
+
+
+                                                <div className="relative flex justify-center grow md:grow-6 lg:grow-8">
+                                                    <div className="absolute md:top-[1vw]  xl:top-[0vw] md:right-[36vw] lg:right-[27vw] xl:right-[19vw] bg-blue-600 rotate-3 md:w-[23vw] lg:w-[23vw] xl:w-[19vw] md:h-[54vw] lg:h-[42vw] xl:h-[31vw] z-10 opacity-85 "></div>
+                                                    <div className="absolute md:top-[3vw]  xl:top-[1.4vw] md:right-[0vw]  lg:right-0 xl:right-[3vw]  bg-purple-500 md:w-[32vw] lg:w-[23vw] xl:w-[20vw] md:h-[51vw] lg:h-[39vw] xl:h-[29vw] z-0"></div>
+
+                                                    <img src={images[count]} className="absolute object-fill md:top-[4.3vw] xl:top-[2.4vw] md:right-[1.8vw] xl:right-[4vw] md:h-[48vw] lg:h-[36.5vw] xl:h-[27vw] md:w-[22vw] lg:w-[28vw] xl:w-[32vw]  z-20 " />
+                                                </div>
+
+
+
+
+
+
+                                            </div>
+
+                                        </div >
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
 
             </div>
         </>

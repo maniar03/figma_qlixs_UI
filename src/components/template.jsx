@@ -120,7 +120,7 @@ export const Template = () => {
                                             <div className="font-bold text-lg ">Screening Template (Initial Candidate Vetting)</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside  ${category === 'hr' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'} px-2`} >
-                                                    <li>Categopry: HR / Recruitment</li>
+                                                    <li>Category: HR / Recruitment</li>
 
                                                 </ul>
                                                 <div className="opacity-70">Last Used: Oct 28,2025</div>
@@ -157,7 +157,7 @@ export const Template = () => {
                                             <div className="font-bold text-lg ">Standard Interview Template (General Role Int...</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside ${category === 'finance' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'}   px-2`} >
-                                                    <li>Categopry: Finance</li>
+                                                    <li>Category: Finance</li>
 
                                                 </ul>
                                                 <div className="opacity-70">Used 3 times in this month</div>
@@ -191,7 +191,7 @@ export const Template = () => {
                                             <div className="font-bold text-lg ">Executive Interview Template (Senior Leaders...</div>
                                             <div className="flex justify-between border-b pb-4 pt-2 border-gray-200 gap-x-6">
                                                 <ul className={`text-md list-disc list-inside  ${category === 'tech' || category === 'eng' ? 'bg-blue-100 text-blue-500' : 'bg-zinc-100 text-gray-500'}  px-2`} >
-                                                    <li>Categopry: Engineering / Tech</li>
+                                                    <li>Category: Engineering / Tech</li>
 
                                                 </ul>
                                                 <div className="opacity-70">Updated: Oct 30,2025</div>
